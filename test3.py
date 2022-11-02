@@ -11,6 +11,7 @@ status = True
 decision = 0
 val = 0
 starter = True
+condv = val != 1 and val != 11
 
 for i in range(5):
     if i < 4:
@@ -28,6 +29,7 @@ if a != 4:
 else:
     b = random.randint(0, 1)
 player = deck[a][b]
+condp = player != 1 and player != 11
 
 if a != 4:
     print("Player has drawn", namenumlist[b], nametypelist[a])
@@ -38,9 +40,9 @@ else:
 if player == "J" or player == "Q" or player == "K":
     player = int(10)
 elif player == "A":
-    while player != 1 or player != 11:
+    while condp:
         player = int(input("Ace! What value do you prefer, 1 or 11? "))
-        if player != 1 or player != 11:
+        if player != 1 and player != 11:
             print("You have to choose either 1 or 11.")
 
 
@@ -57,9 +59,9 @@ while status == True:
         if val == "J" or val == "Q" or val == "K":
             val = int(10)
         elif val == "A":
-            while val != 1 or val != 11:
+            while condv:
                 val = int(input("Ace! What value do you prefer, 1 or 11? "))
-                if val != 1 or val != 11:
+                if val != 1 and val != 11:
                     print("You have to choose either 1 or 11.")
         player += val
         if a != 4:
